@@ -23,8 +23,12 @@ data "aws_iam_policy_document" "s3_bucket_policy" {
 
 resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.domain_name
-  policy = data.aws_iam_policy_document.s3_bucket_policy.json
   tags   = var.tags
+}
+
+resource "aws_s3_bucket_policy" "s3_bucket_policy" {
+    bucket = aws_s3_bucket.s3_bucket.id
+    policy = data.aws_iam_policy_document.s3_bucket_policy.json
 }
 
 resource "aws_s3_bucket_acl" "s3_bucket" {
@@ -39,11 +43,20 @@ resource "aws_s3_bucket_versioning" "s3_bucket" {
   }
 }
 
-resource "aws_s3_bucket_object" "dist" {
+resource "aws_s3_object" "dist" {
   for_each = fileset("${path.module}/../token/", "*")
   bucket = aws_s3_bucket.s3_bucket.bucket
   key    = each.value
   source = "${path.module}/../token/${each.value}"
   # etag makes the file update when it changes; see https://stackoverflow.com/questions/56107258/terraform-upload-file-to-s3-on-every-apply
   etag   = filemd5("${path.module}/../token/${each.value}")
+}
+
+resource "aws_s3_object" "dist_original" {
+  for_each = fileset("${path.module}/../token/original", "*")
+  bucket = aws_s3_bucket.s3_bucket.bucket
+  key    = each.value
+  source = "${path.module}/../token/original/${each.value}"
+  # etag makes the file update when it changes; see https://stackoverflow.com/questions/56107258/terraform-upload-file-to-s3-on-every-apply
+  etag   = filemd5("${path.module}/../token/original/${each.value}")
 }

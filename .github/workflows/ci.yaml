@@ -24,9 +24,7 @@ jobs:
           aws-region: eu-central-1
 
       - name: Terraform Plan
-        working-directory: ./config
         run: terraform plan
 
       - name: Terraform Deploy
-        working-directory: ./config
         run: terraform apply -auto-approve

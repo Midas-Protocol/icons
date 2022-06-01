@@ -1,4 +1,3 @@
-
 resource "aws_cloudfront_distribution" "s3_distribution" {
   depends_on = [
     aws_s3_bucket.s3_bucket
@@ -17,7 +16,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   is_ipv6_enabled     = true
   default_root_object = "default.svg"
 
-  aliases = local.domain_name
+  aliases = []
 
   default_cache_behavior {
     allowed_methods = [
@@ -41,11 +40,11 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
 
     viewer_protocol_policy = "redirect-to-https"
-  
+
     # https://stackoverflow.com/questions/67845341/cloudfront-s3-etag-possible-for-cloudfront-to-send-updated-s3-object-before-t
-    min_ttl                = var.cloudfront_min_ttl
-    default_ttl            = var.cloudfront_default_ttl
-    max_ttl                = var.cloudfront_max_ttl
+    min_ttl     = var.cloudfront_min_ttl
+    default_ttl = var.cloudfront_default_ttl
+    max_ttl     = var.cloudfront_max_ttl
   }
 
   price_class = var.price_class
@@ -54,6 +53,10 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     geo_restriction {
       restriction_type = "none"
     }
+  }
+
+  viewer_certificate {
+    cloudfront_default_certificate = true
   }
 
   custom_error_response {
