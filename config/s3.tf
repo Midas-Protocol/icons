@@ -53,7 +53,7 @@ resource "aws_s3_object" "dist" {
 }
 
 resource "aws_s3_object" "dist_original" {
-  for_each = fileset("${path.module}/../token/original", "*")
+  for_each = fileset("${path.module}/../token/original/", "*")
   bucket = aws_s3_bucket.s3_bucket.bucket
   key    = each.value
   source = "${path.module}/../token/original/${each.value}"
