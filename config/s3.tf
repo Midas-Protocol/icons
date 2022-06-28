@@ -52,11 +52,20 @@ resource "aws_s3_object" "dist" {
   etag   = filemd5("${path.module}/../token/${each.value}")
 }
 
-resource "aws_s3_object" "dist_original" {
-  for_each = fileset("${path.module}/../token/original/", "*")
+resource "aws_s3_object" "dist_32x32" {
+  for_each = fileset("${path.module}/../token/32x32/", "*")
   bucket = aws_s3_bucket.s3_bucket.bucket
-  key    = "token/original/${each.value}"
-  source = "${path.module}/../token/original/${each.value}"
+  key    = "token/32x32/${each.value}"
+  source = "${path.module}/../token/32x32/${each.value}"
   # etag makes the file update when it changes; see https://stackoverflow.com/questions/56107258/terraform-upload-file-to-s3-on-every-apply
-  etag   = filemd5("${path.module}/../token/original/${each.value}")
+  etag   = filemd5("${path.module}/../token/32x32/${each.value}")
+}
+
+resource "aws_s3_object" "dist_96x96" {
+  for_each = fileset("${path.module}/../token/96x96/", "*")
+  bucket = aws_s3_bucket.s3_bucket.bucket
+  key    = "token/96x96/${each.value}"
+  source = "${path.module}/../token/96x96/${each.value}"
+  # etag makes the file update when it changes; see https://stackoverflow.com/questions/56107258/terraform-upload-file-to-s3-on-every-apply
+  etag   = filemd5("${path.module}/../token/96x96/${each.value}")
 }
