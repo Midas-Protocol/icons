@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336.41 337.42"><defs><style>.cls-1{fill:#f0b90b;stroke:#f0b90b;}</style></defs><title>Asset 1</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M168.2.71l41.5,42.5L105.2,147.71l-41.5-41.5Z"/><path class="cls-1" d="M231.2,63.71l41.5,42.5L105.2,273.71l-41.5-41.5Z"/><path class="cls-1" d="M42.2,126.71l41.5,42.5-41.5,41.5L.7,169.21Z"/><path class="cls-1" d="M294.2,126.71l41.5,42.5L168.2,336.71l-41.5-41.5Z"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 337 338" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(0.806741,0,0,0.806741,32.5112,32.6047)">
+        <g id="Layer_2">
+            <g id="Layer_1-2">
+                <path d="M168.2,0.71L209.7,43.21L105.2,147.71L63.7,106.21L168.2,0.71Z" style="fill:rgb(240,185,11);fill-rule:nonzero;stroke:rgb(240,185,11);stroke-width:1px;"/>
+                <path d="M231.2,63.71L272.7,106.21L105.2,273.71L63.7,232.21L231.2,63.71Z" style="fill:rgb(240,185,11);fill-rule:nonzero;stroke:rgb(240,185,11);stroke-width:1px;"/>
+                <path d="M42.2,126.71L83.7,169.21L42.2,210.71L0.7,169.21L42.2,126.71Z" style="fill:rgb(240,185,11);fill-rule:nonzero;stroke:rgb(240,185,11);stroke-width:1px;"/>
+                <path d="M294.2,126.71L335.7,169.21L168.2,336.71L126.7,295.21L294.2,126.71Z" style="fill:rgb(240,185,11);fill-rule:nonzero;stroke:rgb(240,185,11);stroke-width:1px;"/>
+            </g>
+        </g>
+    </g>
+</svg>

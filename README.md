@@ -10,4 +10,4 @@ Simply add your icons inside `token` or `token/original`, commit and push
 
 Latest CloudFront distribution: https://d1912tcoux65lj.cloudfront.net
 
-E.g. https://d1912tcoux65lj.cloudfront.net/tokens/brz.png
+E.g. https://d1912tcoux65lj.cloudfront.net/token/brz.png
