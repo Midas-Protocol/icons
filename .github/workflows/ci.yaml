@@ -6,6 +6,8 @@ on:
     paths:
       - ".github/workflows/ci.yaml"
       - "token/**"
+      - "social/**"
+      - "network/**"
       - "config/**"
 
 jobs:
