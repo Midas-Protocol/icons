@@ -9,6 +9,7 @@ on:
       - "social/**"
       - "network/**"
       - "config/**"
+      - "plugin/**"
 
 jobs:
   terraform-deploy-assets:

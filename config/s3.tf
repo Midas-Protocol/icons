@@ -88,3 +88,12 @@ resource "aws_s3_object" "network" {
   # etag makes the file update when it changes; see https://stackoverflow.com/questions/56107258/terraform-upload-file-to-s3-on-every-apply
   etag = filemd5("${path.module}/../network/${each.value}")
 }
+
+resource "aws_s3_object" "plugin" {
+  for_each = fileset("${path.module}/../plugin/", "*")
+  bucket   = aws_s3_bucket.s3_bucket.bucket
+  key      = "plugin/${each.value}"
+  source   = "${path.module}/../plugin/${each.value}"
+  # etag makes the file update when it changes; see https://stackoverflow.com/questions/56107258/terraform-upload-file-to-s3-on-every-apply
+  etag = filemd5("${path.module}/../plugin/${each.value}")
+}
